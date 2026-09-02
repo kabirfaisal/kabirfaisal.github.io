@@ -11,17 +11,18 @@ Static site hosted on GitHub Pages.
 | `research.html` | Research interests and approach |
 | `publications.html` | Full peer-reviewed publication list |
 | `projects.html` | Selected applied projects |
-| `blog.html` | Notes: paper summaries, algorithm explainers, maths (English only) |
+| `blog/` | Blog (English only) — a hub (`blog/index.html`) plus one page per section: `paper-summaries`, `related-work`, `algorithms`, `math`, `glossary`, `reading-list` |
+| `blog.html` | Redirect stub → `blog/index.html` (keeps old links working) |
 | `cv.html` | On-page CV + PDF download |
 | `404.html` | Custom not-found page |
-| `de/` | German versions of every page except Notes (`de/index.html`, `de/about.html`, …) |
+| `de/` | German versions of every page except the blog (`de/index.html`, `de/about.html`, …) |
 | `assets/css/site.css` | Single shared stylesheet (design tokens, layout, dark mode) |
 | `assets/js/site.js` | Mobile nav, scroll reveal, sticky header, back-to-top |
 
 ## Languages (EN / DE)
 
 - English pages live at the root; German pages under `de/`. Each page has an **EN | DE** switch in the header and `hreflang` alternate tags.
-- The **Notes** page (`blog.html`) is English-only; its DE switch points to `de/index.html`, and the German nav links "Notizen" back to the English `blog.html`.
+- The **Blog** (`blog/`) is English-only; its DE switch points to `de/index.html`, and the German nav's "Blog" link points to `blog/index.html`. Blog sub-pages share one `<nav class="cat-nav">` block — update it on all of them when adding/removing a section.
 - **Keep the two versions in sync:** when you edit content on an English page, make the matching change in its `de/` twin (and vice versa). They share `assets/`, `images/`, and the CV PDF via `../`.
 
 ## Editing

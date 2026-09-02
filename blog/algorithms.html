@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Algorithms, explained | Md Faisal Kabir</title>
+	<meta name="description" content="Plain-language explainers for the algorithms behind Md Faisal Kabir's research: decision trees and boosting, MLPs, LSTMs, autoencoders, GANs, attention, and multimodal fusion." />
+	<meta name="author" content="Md Faisal Kabir" />
+	<link rel="canonical" href="https://kabirfaisal.github.io/blog/algorithms.html" />
+	<meta property="og:title" content="Algorithms, explained | Md Faisal Kabir" />
+	<meta property="og:description" content="Plain-language explainers for the algorithms behind Md Faisal Kabir's research: decision trees and boosting, MLPs, LSTMs, autoencoders, GANs, attention, and multimodal fusion." />
+	<meta property="og:image" content="https://kabirfaisal.github.io/images/profile.jpg" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:image" content="https://kabirfaisal.github.io/images/profile.jpg" />
+	<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A7%A0%3C/text%3E%3C/svg%3E" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="../assets/css/site.css?v=2" />
+</head>
+<body>
+	<a class="skip-link" href="#main">Skip to content</a>
+
+	<header class="site-header">
+		<div class="container nav">
+			<a class="brand" href="../index.html"><span class="monogram">FK</span> Md Faisal Kabir</a>
+			<div class="nav-right">
+				<ul class="nav-links" id="nav-links">
+					<li><a href="../index.html">Home</a></li>
+					<li><a href="../about.html">About</a></li>
+					<li><a href="../research.html">Research</a></li>
+					<li><a href="../publications.html">Publications</a></li>
+					<li><a href="../projects.html">Projects</a></li>
+					<li class="active"><a href="index.html">Blog</a></li>
+					<li><a href="../cv.html">CV</a></li>
+				</ul>
+				<div class="lang-switch" role="group" aria-label="Language">
+					<span aria-current="true">EN</span><span class="sep">|</span><a href="../de/index.html" hreflang="de">DE</a>
+				</div>
+				<button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+				</button>
+			</div>
+		</div>
+	</header>
+
+	<main id="main">
+		<section class="hero compact">
+			<div class="container hero-inner">
+				<p class="eyebrow">Research notes</p>
+				<h1>Algorithms, explained</h1>
+				<p class="hero-bio">The building blocks used across my work, each in a paragraph or two.</p>
+			</div>
+		</section>
+
+		<section class="section">
+			<div class="container">
+				<nav class="cat-nav" aria-label="Blog sections" style="margin-bottom:2rem;">
+					<a href="index.html">Overview</a>
+					<a href="paper-summaries.html">My papers</a>
+					<a href="related-work.html">Related work</a>
+					<a href="algorithms.html" aria-current="page">Algorithms</a>
+					<a href="math.html">Maths</a>
+					<a href="glossary.html">Glossary</a>
+					<a href="reading-list.html">Reading list</a>
+				</nav>
+			</div>
+		</section>
+
+		<section class="section" id="algorithms">
+			<div class="container">
+				<div class="section-head" data-reveal>
+					<h2>Algorithms, explained</h2>
+					<p class="muted">The building blocks used across my work, each in a paragraph or two &mdash; enough to follow the papers, not a textbook.</p>
+				</div>
+
+				<div class="grid cols-2">
+
+					<article class="card card-hover" data-reveal>
+						<h3>Decision trees &amp; gradient boosting</h3>
+						<p>A decision tree splits the data with a sequence of yes/no questions (&ldquo;heart rate &gt; 120?&rdquo;) until each leaf holds one prediction. Single trees are easy to read but unstable. <em>Gradient boosting</em> (XGBoost, LightGBM) builds many small trees in sequence, where each new tree is fit to the errors the current ensemble still makes. The result is one of the strongest models for tabular data and a common baseline in my classification experiments.</p>
+											<p class="ref-line"><strong>References:</strong> Breiman et al., <em>Classification and Regression Trees</em> (Wadsworth, 1984); Friedman, &ldquo;Greedy function approximation: a gradient boosting machine,&rdquo; <em>Annals of Statistics</em> 29(5), 2001; Chen &amp; Guestrin, &ldquo;XGBoost,&rdquo; KDD 2016 &mdash; <a href="https://arxiv.org/abs/1603.02754" target="_blank" rel="noopener">arXiv:1603.02754</a>.</p>
+					</article>
+
+					<article class="card card-hover" data-reveal>
+						<h3>Neural networks (MLP) &amp; backpropagation</h3>
+						<p>A multilayer perceptron stacks layers of the form <span class="mono">output = activation(W&middot;input + b)</span>. The non-linear activation (ReLU, etc.) is what lets stacked layers represent complex functions. Training means measuring a loss, then using <em>backpropagation</em> &mdash; the chain rule applied layer by layer &mdash; to get the gradient of that loss with respect to every weight, and nudging the weights against it.</p>
+											<p class="ref-line"><strong>References:</strong> Rumelhart, Hinton &amp; Williams, &ldquo;Learning representations by back-propagating errors,&rdquo; <em>Nature</em> 323, 1986; Goodfellow, Bengio &amp; Courville, <em>Deep Learning</em> (MIT Press, 2016), ch.&nbsp;6 &mdash; <a href="https://www.deeplearningbook.org" target="_blank" rel="noopener">deeplearningbook.org</a>.</p>
+					</article>
+
+					<article class="card card-hover" data-reveal>
+						<h3>LSTM networks</h3>
+						<p>A recurrent network reads a sequence one step at a time, carrying a hidden state forward. Plain RNNs forget quickly because gradients shrink over many steps. An <em>LSTM</em> adds a separate cell state and three gates (input, forget, output) that learn what to keep, overwrite, or expose. That makes it good at the timing and trends in vital-sign streams, which is why it appears in both my imputation and assistant-system work.</p>
+											<p class="ref-line"><strong>References:</strong> Hochreiter &amp; Schmidhuber, &ldquo;Long short-term memory,&rdquo; <em>Neural Computation</em> 9(8), 1997 &mdash; <a href="https://doi.org/10.1162/neco.1997.9.8.1735" target="_blank" rel="noopener">doi:10.1162/neco.1997.9.8.1735</a>.</p>
+					</article>
+
+					<article class="card card-hover" data-reveal>
+						<h3>Autoencoders &amp; denoising autoencoders</h3>
+						<p>An autoencoder compresses an input to a small code and reconstructs it, learning the data&rsquo;s structure in the bottleneck. A <em>denoising</em> autoencoder is trained to rebuild a clean input from a corrupted one, which makes its features more robust and turns it into a natural imputer: mark missing values as corruption and read off the reconstruction.</p>
+											<p class="ref-line"><strong>References:</strong> Vincent, Larochelle, Bengio &amp; Manzagol, &ldquo;Extracting and composing robust features with denoising autoencoders,&rdquo; ICML 2008; Vincent et al., &ldquo;Stacked denoising autoencoders,&rdquo; <em>JMLR</em> 11, 2010 &mdash; <a href="https://www.jmlr.org/papers/v11/vincent10a.html" target="_blank" rel="noopener">jmlr.org/papers/v11/vincent10a</a>.</p>
+					</article>
+
+					<article class="card card-hover" data-reveal>
+						<h3>Generative adversarial networks (GANs)</h3>
+						<p>Two networks play a game. The <em>generator</em> turns random noise into fake samples; the <em>discriminator</em> tries to tell fake from real. Training the two together pushes the generator toward samples the discriminator cannot distinguish from the real distribution. GANs are powerful but delicate &mdash; unstable training and <em>mode collapse</em> (the generator producing only a few kinds of sample) are the usual failure modes, and much of tabular-GAN research is about avoiding them.</p>
+											<p class="ref-line"><strong>References:</strong> Goodfellow et al., &ldquo;Generative adversarial nets,&rdquo; NeurIPS 2014 &mdash; <a href="https://arxiv.org/abs/1406.2661" target="_blank" rel="noopener">arXiv:1406.2661</a>; Salimans et al., &ldquo;Improved techniques for training GANs,&rdquo; NeurIPS 2016 &mdash; <a href="https://arxiv.org/abs/1606.03498" target="_blank" rel="noopener">arXiv:1606.03498</a>.</p>
+					</article>
+
+					<article class="card card-hover" data-reveal>
+						<h3>Attention &amp; transformers</h3>
+						<p>Attention lets a model, for each position in a sequence, take a weighted average of all other positions, with the weights computed from how relevant each one is. Stacking multi-head attention with feed-forward layers and positional encodings gives the transformer &mdash; parallel to train, good at long-range structure, and the standard encoder for the free-text part of a multimodal clinical model.</p>
+											<p class="ref-line"><strong>References:</strong> Bahdanau, Cho &amp; Bengio, &ldquo;Neural machine translation by jointly learning to align and translate,&rdquo; ICLR 2015 &mdash; <a href="https://arxiv.org/abs/1409.0473" target="_blank" rel="noopener">arXiv:1409.0473</a>; Vaswani et al., &ldquo;Attention is all you need,&rdquo; NeurIPS 2017 &mdash; <a href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener">arXiv:1706.03762</a>.</p>
+					</article>
+
+					<article class="card card-hover" data-reveal>
+						<h3>Multimodal fusion</h3>
+						<p>When inputs come in different forms &mdash; signals, tables, text &mdash; you can combine them <em>early</em> (concatenate raw features), <em>late</em> (train one model per modality and merge predictions), or <em>jointly</em> (encode each modality, then fuse the encodings and train end to end). The TeleNotArzt model uses joint fusion so that a weak or missing modality is down-weighted rather than breaking the pipeline.</p>
+											<p class="ref-line"><strong>References:</strong> Baltru&scaron;aitis, Ahuja &amp; Morency, &ldquo;Multimodal machine learning: a survey and taxonomy,&rdquo; <em>IEEE TPAMI</em> 41(2), 2019 &mdash; <a href="https://arxiv.org/abs/1705.09406" target="_blank" rel="noopener">arXiv:1705.09406</a>.</p>
+					</article>
+
+					<article class="card card-hover" data-reveal>
+						<h3>Ranking metrics (recall@k, coverage)</h3>
+						<p>When a model returns a ranked shortlist rather than one label, accuracy is the wrong lens. <em>recall@k</em> asks whether the correct item is in the top&nbsp;k. <em>coverage</em> asks whether, across a case, every action that should have been suggested was suggested somewhere in the lists. Together they measure both &ldquo;is the answer near the top&rdquo; and &ldquo;did we miss anything&rdquo;.</p>
+											<p class="ref-line"><strong>References:</strong> Manning, Raghavan &amp; Sch&uuml;tze, <em>Introduction to Information Retrieval</em> (Cambridge, 2008), ch.&nbsp;8 &mdash; <a href="https://nlp.stanford.edu/IR-book/" target="_blank" rel="noopener">nlp.stanford.edu/IR-book</a>. Coverage as used here is defined in my TeleNotArzt paper &mdash; <a href="https://doi.org/10.5220/0014481000004052" target="_blank" rel="noopener">doi:10.5220/0014481000004052</a>.</p>
+					</article>
+
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div class="container">
+			<span>&copy; 2026 Md Faisal Kabir &bull; Kiel, Germany</span>
+			<span class="footer-social">
+				<a href="https://orcid.org/0009-0000-2354-2193" target="_blank" rel="noopener" aria-label="ORCID"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0ZM7.369 4.378c.525 0 .947.431.947.947 0 .525-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947Zm-.722 3.038h1.444v10.041H6.647V7.416Zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.025-5.325 5.025h-3.919V7.416Zm1.444 1.303v7.444h2.297c3.272 0 4.022-2.484 4.022-3.722 0-2.016-1.284-3.722-4.097-3.722h-2.222Z"/></svg></a>
+				<a href="https://scholar.google.com/citations?user=8Gns9zUAAAAJ" target="_blank" rel="noopener" aria-label="Google Scholar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.242 13.769 0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg></a>
+				<a href="https://www.researchgate.net/profile/Md-Faisal-Kabir-6" target="_blank" rel="noopener" aria-label="ResearchGate"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.586 0c-.818 0-1.508.19-2.073.565-.563.376-.97.936-1.213 1.68a3.19 3.19 0 0 0-.112.437c-.024.15-.05.31-.077.53a9 9 0 0 0-.05.727c-.01.282-.013.621-.013 1.016 0 .418.004.757.013 1.017.01.26.026.5.05.727.024.226.05.4.077.53.028.15.065.29.112.436.243.744.65 1.304 1.214 1.68.564.376 1.255.565 2.074.565.8 0 1.536-.213 2.105-.603.57-.39.94-.916 1.175-1.65.075-.235.134-.558.176-.93.043-.372.043-.783.043-1.207v-.82c0-.094-.047-.14-.14-.14h-3.064c-.094 0-.14.046-.14.14v.956c0 .094.046.14.14.14h1.666c.056 0 .084.03.084.087 0 .36 0 .62-.036.865-.038.244-.1.447-.147.606-.108.385-.348.664-.638.876-.29.212-.738.35-1.227.35-.545 0-.9-.15-1.21-.353-.306-.203-.517-.454-.67-.915a3.14 3.14 0 0 1-.147-.762 17.4 17.4 0 0 1-.034-.656c-.01-.26-.014-.572-.014-.939 0-.36.004-.678.014-.938.008-.234.02-.437.039-.598.017-.192.048-.425.111-.63.16-.531.42-.94.784-1.226.365-.286.79-.43 1.29-.43.55 0 .96.15 1.27.36.31.21.5.472.61.81.03.09.078.14.16.14h1.657c.09 0 .14-.05.13-.14a3.65 3.65 0 0 0-.303-1.192 3.75 3.75 0 0 0-.86-1.183 3.93 3.93 0 0 0-1.34-.771A5.32 5.32 0 0 0 19.586 0zM8.217 5.836c-1.69 0-3.036.086-4.297.086-1.146 0-2.291 0-3.007-.029v.831l1.088.2c.744.144.945.487.945 1.316v11.874c0 .83-.2 1.174-.945 1.318l-1.088.2v.83c.716-.028 1.917-.086 3.208-.086 1.29 0 2.951.058 3.667.086v-.83l-1.547-.2c-.773-.115-.947-.487-.947-1.318v-4.13c.474.086 1.06.086 1.863.086 1.891 0 3.351-.372 4.239-1.317.744-.773 1.174-1.86 1.174-3.207 0-1.318-.487-2.406-1.174-3.007-.888-.77-2.32-1.058-4.096-1.058zm-.29 1.032c1.06 0 1.803.2 2.32.688.516.487.744 1.145.744 2.033 0 1.06-.257 1.86-.773 2.404-.516.544-1.29.83-2.406.83-.687 0-1.318 0-1.663-.114V7.03c.345-.086.888-.163 1.777-.163z"/></svg></a>
+				<a href="https://www.linkedin.com/in/md-faisal-kabir-2203a4a1/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z"/></svg></a>
+				<a href="https://github.com/kabirfaisal" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.37.5 0 5.78 0 12.29c0 5.2 3.44 9.6 8.21 11.16.6.11.82-.25.82-.56v-2.02c-3.34.71-4.04-1.4-4.04-1.4-.55-1.36-1.34-1.72-1.34-1.72-1.09-.72.08-.71.08-.71 1.2.08 1.84 1.21 1.84 1.21 1.07 1.79 2.81 1.27 3.5.97.11-.76.42-1.27.76-1.56-2.67-.29-5.47-1.29-5.47-5.74 0-1.27.47-2.31 1.24-3.12-.13-.29-.54-1.46.12-3.05 0 0 1.01-.31 3.3 1.19a11.7 11.7 0 0 1 3-.39c1.02 0 2.05.13 3 .39 2.28-1.5 3.29-1.19 3.29-1.19.66 1.59.25 2.76.12 3.05.78.81 1.24 1.85 1.24 3.12 0 4.46-2.81 5.44-5.49 5.73.43.36.81 1.08.81 2.18v3.24c0 .31.21.68.82.56A11.8 11.8 0 0 0 24 12.29C24 5.78 18.63.5 12 .5Z"/></svg></a>
+			</span>
+		</div>
+	</footer>
+
+	<button class="to-top" aria-label="Back to top">
+		<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+	</button>
+
+	<!-- GoatCounter — privacy-friendly analytics (no cookies, no consent banner). Replace MYCODE to activate. -->
+	<script data-goatcounter="https://MYCODE.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+	<script src="../assets/js/site.js?v=2"></script>
+</body>
+</html>

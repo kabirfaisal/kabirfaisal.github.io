@@ -38,8 +38,12 @@
 		<xhtml:link rel="alternate" hreflang="de" href="https://kabirfaisal.github.io/de/cv.html" />
 		<xhtml:link rel="alternate" hreflang="x-default" href="https://kabirfaisal.github.io/cv.html" />
 	</url>
-	<url>
-		<loc>https://kabirfaisal.github.io/blog.html</loc>
-	</url>
+	<url><loc>https://kabirfaisal.github.io/blog/</loc></url>
+	<url><loc>https://kabirfaisal.github.io/blog/paper-summaries.html</loc></url>
+	<url><loc>https://kabirfaisal.github.io/blog/related-work.html</loc></url>
+	<url><loc>https://kabirfaisal.github.io/blog/algorithms.html</loc></url>
+	<url><loc>https://kabirfaisal.github.io/blog/math.html</loc></url>
+	<url><loc>https://kabirfaisal.github.io/blog/glossary.html</loc></url>
+	<url><loc>https://kabirfaisal.github.io/blog/reading-list.html</loc></url>
 
 </urlset>
