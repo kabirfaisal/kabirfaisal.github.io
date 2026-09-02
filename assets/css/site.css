@@ -145,6 +145,31 @@ p:last-child { margin-bottom: 0; }
 	height: var(--header-h);
 }
 
+.nav-right {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.lang-switch {
+	display: flex;
+	align-items: center;
+	gap: .1rem;
+	font-size: .78rem;
+	font-weight: 800;
+	letter-spacing: .03em;
+	flex-shrink: 0;
+}
+.lang-switch a,
+.lang-switch span {
+	padding: .3rem .45rem;
+	border-radius: 7px;
+	color: var(--muted);
+}
+.lang-switch a:hover { color: var(--heading); background: var(--surface-soft); }
+.lang-switch [aria-current="true"] { color: var(--accent); }
+.lang-switch .sep { padding: 0; color: var(--border); }
+
 .brand {
 	display: inline-flex;
 	align-items: center;

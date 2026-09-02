@@ -1,10 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-	<url><loc>https://kabirfaisal.github.io/</loc></url>
-	<url><loc>https://kabirfaisal.github.io/about.html</loc></url>
-	<url><loc>https://kabirfaisal.github.io/research.html</loc></url>
-	<url><loc>https://kabirfaisal.github.io/publications.html</loc></url>
-	<url><loc>https://kabirfaisal.github.io/projects.html</loc></url>
-	<url><loc>https://kabirfaisal.github.io/blog.html</loc></url>
-	<url><loc>https://kabirfaisal.github.io/cv.html</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+	<url>
+		<loc>https://kabirfaisal.github.io/</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://kabirfaisal.github.io/" />
+		<xhtml:link rel="alternate" hreflang="de" href="https://kabirfaisal.github.io/de/" />
+		<xhtml:link rel="alternate" hreflang="x-default" href="https://kabirfaisal.github.io/" />
+	</url>
+	<url>
+		<loc>https://kabirfaisal.github.io/about.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://kabirfaisal.github.io/about.html" />
+		<xhtml:link rel="alternate" hreflang="de" href="https://kabirfaisal.github.io/de/about.html" />
+		<xhtml:link rel="alternate" hreflang="x-default" href="https://kabirfaisal.github.io/about.html" />
+	</url>
+	<url>
+		<loc>https://kabirfaisal.github.io/research.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://kabirfaisal.github.io/research.html" />
+		<xhtml:link rel="alternate" hreflang="de" href="https://kabirfaisal.github.io/de/research.html" />
+		<xhtml:link rel="alternate" hreflang="x-default" href="https://kabirfaisal.github.io/research.html" />
+	</url>
+	<url>
+		<loc>https://kabirfaisal.github.io/publications.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://kabirfaisal.github.io/publications.html" />
+		<xhtml:link rel="alternate" hreflang="de" href="https://kabirfaisal.github.io/de/publications.html" />
+		<xhtml:link rel="alternate" hreflang="x-default" href="https://kabirfaisal.github.io/publications.html" />
+	</url>
+	<url>
+		<loc>https://kabirfaisal.github.io/projects.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://kabirfaisal.github.io/projects.html" />
+		<xhtml:link rel="alternate" hreflang="de" href="https://kabirfaisal.github.io/de/projects.html" />
+		<xhtml:link rel="alternate" hreflang="x-default" href="https://kabirfaisal.github.io/projects.html" />
+	</url>
+	<url>
+		<loc>https://kabirfaisal.github.io/cv.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://kabirfaisal.github.io/cv.html" />
+		<xhtml:link rel="alternate" hreflang="de" href="https://kabirfaisal.github.io/de/cv.html" />
+		<xhtml:link rel="alternate" hreflang="x-default" href="https://kabirfaisal.github.io/cv.html" />
+	</url>
+	<url>
+		<loc>https://kabirfaisal.github.io/blog.html</loc>
+	</url>
+
 </urlset>

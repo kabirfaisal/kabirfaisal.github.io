@@ -11,17 +11,24 @@ Static site hosted on GitHub Pages.
 | `research.html` | Research interests and approach |
 | `publications.html` | Full peer-reviewed publication list |
 | `projects.html` | Selected applied projects |
-| `blog.html` | Placeholder for future writing |
-| `cv.html` | CV download + highlights |
+| `blog.html` | Notes: paper summaries, algorithm explainers, maths (English only) |
+| `cv.html` | On-page CV + PDF download |
 | `404.html` | Custom not-found page |
+| `de/` | German versions of every page except Notes (`de/index.html`, `de/about.html`, …) |
 | `assets/css/site.css` | Single shared stylesheet (design tokens, layout, dark mode) |
 | `assets/js/site.js` | Mobile nav, scroll reveal, sticky header, back-to-top |
+
+## Languages (EN / DE)
+
+- English pages live at the root; German pages under `de/`. Each page has an **EN | DE** switch in the header and `hreflang` alternate tags.
+- The **Notes** page (`blog.html`) is English-only; its DE switch points to `de/index.html`, and the German nav links "Notizen" back to the English `blog.html`.
+- **Keep the two versions in sync:** when you edit content on an English page, make the matching change in its `de/` twin (and vice versa). They share `assets/`, `images/`, and the CV PDF via `../`.
 
 ## Editing
 
 - **Colors / spacing / radius:** the `:root` (and dark-mode) custom properties at the top of `assets/css/site.css`.
-- **Navigation:** the `<ul class="nav-links">` block, identical on every page — update all pages when changing items.
-- **Add a publication:** copy an `<article class="pub">` block in `publications.html`; add a shortened copy to the "Selected publications" list in `index.html` if it should be featured.
+- **Navigation:** the `<ul class="nav-links">` block — identical on every EN page, and every DE page — update all of them when changing items.
+- **Add a publication:** copy an `<article class="pub">` block in `publications.html` (and `de/publications.html`); add a shortened copy to the "Selected publications" list in `index.html` / `de/index.html` if it should be featured.
 
 ## Deploy
 
