@@ -1,0 +1,26 @@
+title: Md Faisal Kabir
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+collections:
+  papers:
+    output: false
+  related_work:
+    output: false
+  algorithms:
+    output: false
+  math:
+    output: false
+
+defaults:
+  - scope:
+      path: "blog"
+    values:
+      layout: blog-page
+
+exclude:
+  - README.md
+  - README.txt
+  - LICENSE.txt

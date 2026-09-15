@@ -1,0 +1,9 @@
+				<nav class="cat-nav" aria-label="Blog sections" style="margin-bottom:2rem;">
+					<a href="/blog/index.html"{% if page.url == "/blog/" or page.url == "/blog/index.html" %} aria-current="page"{% endif %}>Overview</a>
+					<a href="/blog/paper-summaries.html"{% if page.url == "/blog/paper-summaries.html" %} aria-current="page"{% endif %}>My papers</a>
+					<a href="/blog/related-work.html"{% if page.url == "/blog/related-work.html" %} aria-current="page"{% endif %}>Related work</a>
+					<a href="/blog/algorithms.html"{% if page.url == "/blog/algorithms.html" %} aria-current="page"{% endif %}>Algorithms</a>
+					<a href="/blog/math.html"{% if page.url == "/blog/math.html" %} aria-current="page"{% endif %}>Maths</a>
+					<a href="/blog/glossary.html"{% if page.url == "/blog/glossary.html" %} aria-current="page"{% endif %}>Glossary</a>
+					<a href="/blog/reading-list.html"{% if page.url == "/blog/reading-list.html" %} aria-current="page"{% endif %}>Reading list</a>
+				</nav>
