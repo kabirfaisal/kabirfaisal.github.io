@@ -143,6 +143,89 @@
 							<li><strong>Novelty / serendipity</strong> &mdash; not something I use today, but relevant if the goal shifts toward surfacing rare-but-plausible diagnoses instead of only the statistically common ones, i.e. checking the model hasn&rsquo;t taken a majority-class shortcut.</li>
 							<li><strong>Business metrics (CTR, adoption, conversion)</strong> &mdash; don&rsquo;t map onto a clinical tool the way they do onto e-commerce, but the underlying instinct &mdash; pair offline ranking metrics with a real-world outcome, such as clinician acceptance rate or time-to-treatment &mdash; is exactly how this kind of assistant should eventually be validated beyond offline numbers.</li>
 						</ul>
+						<h4>Uses</h4>
+						<p>The survey&rsquo;s tables spell out, metric by metric, when to reach for each one. The first four cover the similarity, candidate-generation, predictive, and ranking families:</p>
+						<p class="muted" style="margin-bottom:.4rem;"><strong>Table 1 &mdash; Similarity metrics</strong></p>
+						<div class="table-wrapper">
+							<table>
+								<thead>
+									<tr>
+										<th>Metric</th>
+										<th>Use cases</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr><td>Cosine Similarity</td><td>Use cosine similarity when evaluating the orientation, not magnitude, of user or item vectors.</td></tr>
+									<tr><td>Euclidean Distance</td><td>Use Euclidean Distance when comparing profiles in a feature space.</td></tr>
+									<tr><td>Jaccard Index</td><td>Use the Jaccard Index when evaluating the similarity between users&rsquo; or items&rsquo; sets of preferences.</td></tr>
+									<tr><td>Hamming Distance</td><td>Use Hamming Distance when comparing binary vectors.</td></tr>
+									<tr><td>Manhattan Distance</td><td>Use Manhattan Distance when dealing with high-dimensional, sparse data sets.</td></tr>
+									<tr><td>Chebyshev Distance</td><td>Use Chebyshev Distance when capturing the maximum disparity across dimensions.</td></tr>
+									<tr><td>Adjusted Cosine Similarity</td><td>Use Adjusted Cosine Similarity when evaluating item-based collaborative filtering systems.</td></tr>
+									<tr><td>Pearson Correlation Coefficient</td><td>Use Pearson Correlation when assessing the linear relationship between two variables.</td></tr>
+									<tr><td>Spearman Rank Order Correlation Coefficient</td><td>Use Spearman Rank Order Correlation Coefficient when assessing monotonic relationships.</td></tr>
+								</tbody>
+							</table>
+						</div>
+						<p class="muted" style="margin-bottom:.4rem;"><strong>Table 2 &mdash; Candidate-generation metrics</strong></p>
+						<div class="table-wrapper">
+							<table>
+								<thead>
+									<tr>
+										<th>Metric</th>
+										<th>Use cases</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr><td>Novelty</td><td>Use Novelty when assessing the system&rsquo;s ability to suggest unexpected items.</td></tr>
+									<tr><td>Diversity</td><td>Use Diversity when the goal is to broaden user exposure beyond familiar items.</td></tr>
+									<tr><td>Serendipity</td><td>Use Serendipity when assessing the system&rsquo;s ability to offer novel, unexpected, yet relevant items.</td></tr>
+									<tr><td>Catalog Coverage</td><td>Use Catalog Coverage when assessing the system&rsquo;s ability to suggest a wide variety of items.</td></tr>
+									<tr><td>Distributional Coverage</td><td>Use Distributional Coverage when evaluating the diversity of recommendations in a system.</td></tr>
+								</tbody>
+							</table>
+						</div>
+						<p class="muted" style="margin-bottom:.4rem;"><strong>Table 3 &mdash; Predictive metrics</strong></p>
+						<div class="table-wrapper">
+							<table>
+								<thead>
+									<tr>
+										<th>Metric</th>
+										<th>Use cases</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr><td>Root Mean Squared Error (RMSE)</td><td>Use RMSE to measure the magnitude of prediction errors, giving more weight to larger errors.</td></tr>
+									<tr><td>Mean Absolute Error (MAE)</td><td>Use MAE to measure the average magnitude of errors in predictions.</td></tr>
+									<tr><td>Mean Squared Error (MSE)</td><td>Use MSE when evaluating a system&rsquo;s predictive accuracy for continuous output.</td></tr>
+									<tr><td>Mean Absolute Percentage Error (MAPE)</td><td>Use MAPE to measure forecast accuracy as a percentage.</td></tr>
+									<tr><td>R&sup2;</td><td>Use R&sup2; (coefficient of determination) when assessing the proportion of variance explained.</td></tr>
+									<tr><td>Explained Variance</td><td>Use Explained Variance when you aim to measure the proportion of user-preference variance captured.</td></tr>
+								</tbody>
+							</table>
+						</div>
+						<p class="muted" style="margin-bottom:.4rem;"><strong>Table 4 &mdash; Ranking-based metrics</strong></p>
+						<div class="table-wrapper">
+							<table>
+								<thead>
+									<tr>
+										<th>Metric</th>
+										<th>Use cases</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr><td>Mean Reciprocal Rank (MRR)</td><td>Use MRR when evaluating a system&rsquo;s effectiveness at returning the first relevant item.</td></tr>
+									<tr><td>ARHR@k</td><td>Use Average Reciprocal Hit Rank at k to measure the average quality of recommendations by considering the reciprocal of the rank.</td></tr>
+									<tr><td>Normalized Discounted Cumulative Gain (nDCG)</td><td>Use nDCG when ranking relevance matters, and you need to evaluate the quality of a recommended list.</td></tr>
+									<tr><td>Precision@k</td><td>Use Precision@k when evaluating the proportion of relevant items among the top-k recommendations.</td></tr>
+									<tr><td>Recall@k</td><td>Use Recall@k when prioritizing the model&rsquo;s ability to capture all relevant items.</td></tr>
+									<tr><td>F1@k</td><td>Use F1@k for scenarios where the focus is on the precision of the top-k recommendations.</td></tr>
+									<tr><td>Average Recall@K</td><td>Use Average Recall@K when you need to assess the proportion of relevant items successfully retrieved.</td></tr>
+									<tr><td>Average Precision@K</td><td>Use Average Precision@k when the order of items matters.</td></tr>
+									<tr><td>Mean Average Precision (MAP)</td><td>Use MAP when evaluating the quality of a ranked list of items.</td></tr>
+								</tbody>
+							</table>
+						</div>
 						<p class="ref-line"><strong>Reference:</strong> Jadon, A., &amp; Patil, A. (2024). A comprehensive survey of evaluation techniques for recommendation systems. arXiv:2312.16015.</p>
 						<p><a class="btn btn-outline" href="https://arxiv.org/abs/2312.16015" target="_blank" rel="noopener">arXiv:2312.16015 &rarr;</a></p>
 					</article>
