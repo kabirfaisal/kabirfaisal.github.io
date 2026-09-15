@@ -1,0 +1,18 @@
+---
+layout: default
+---
+		<section class="hero compact">
+			<div class="container hero-inner">
+				<p class="eyebrow">Research notes</p>
+				<h1>{{ page.h1 }}</h1>
+				<p class="hero-bio">{{ page.hero_bio }}</p>
+			</div>
+		</section>
+
+		<section class="section">
+			<div class="container">
+{% include blog-catnav.html %}
+			</div>
+		</section>
+
+{{ content }}
