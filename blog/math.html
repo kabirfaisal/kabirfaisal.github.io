@@ -4,11 +4,11 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<title>Mathematical foundations | Md Faisal Kabir</title>
-	<meta name="description" content="The mathematical foundations behind Md Faisal Kabir's research: softmax, cross-entropy, gradient descent, the GAN objective, KL/JS divergence, ROC/AUC, and recall@k." />
+	<meta name="description" content="The mathematical foundations behind Md Faisal Kabir's research: softmax, cross-entropy, gradient descent, the GAN objective, KL/JS divergence, ROC/AUC, recall@k, plus the recommendation-system evaluation metrics (cosine similarity, RMSE/MAE, nDCG, MAP, MRR, and more) from Jadon & Patil's 2024 survey." />
 	<meta name="author" content="Md Faisal Kabir" />
 	<link rel="canonical" href="https://kabirfaisal.github.io/blog/math.html" />
 	<meta property="og:title" content="Mathematical foundations | Md Faisal Kabir" />
-	<meta property="og:description" content="The mathematical foundations behind Md Faisal Kabir's research: softmax, cross-entropy, gradient descent, the GAN objective, KL/JS divergence, ROC/AUC, and recall@k." />
+	<meta property="og:description" content="The mathematical foundations behind Md Faisal Kabir's research: softmax, cross-entropy, gradient descent, the GAN objective, KL/JS divergence, ROC/AUC, recall@k, plus the recommendation-system evaluation metrics (cosine similarity, RMSE/MAE, nDCG, MAP, MRR, and more) from Jadon & Patil's 2024 survey." />
 	<meta property="og:image" content="https://kabirfaisal.github.io/images/profile.jpg" />
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:image" content="https://kabirfaisal.github.io/images/profile.jpg" />
@@ -126,6 +126,101 @@ JSD(P &#8214; Q)   =  &frac12; D_KL(P &#8214; M)  +  &frac12; D_KL(Q &#8214; M),
 precision@k  =  | relevant &cap; top-k |  /  k</code>
 						<p>For a ranked shortlist of length <span class="mono">k</span>: recall@k is the share of the things that <em>should</em> have been found that appear in the top&nbsp;k; precision@k is the share of the top&nbsp;k that are actually relevant. Raising <span class="mono">k</span> trades precision for recall.</p>
 											<p class="ref-line"><strong>References:</strong> Manning, Raghavan &amp; Sch&uuml;tze, <em>Introduction to Information Retrieval</em> (Cambridge, 2008), ch.&nbsp;8 &mdash; <a href="https://nlp.stanford.edu/IR-book/" target="_blank" rel="noopener">nlp.stanford.edu/IR-book</a>.</p>
+					</article>
+
+					<div class="section-head" data-reveal style="margin-top:1rem;">
+						<h3>From: evaluation metrics for recommendation systems</h3>
+						<p class="muted">All formulas below are from the survey by Jadon &amp; Patil (2024), covered in <a href="related-work.html#p-eval-survey">Related work</a>, where I map each metric family onto my own TeleNotArzt evaluation.</p>
+					</div>
+
+					<article class="card" data-reveal>
+						<h3>Cosine similarity</h3>
+						<code class="formula">cos(&theta;)  =  ( &Sigma; A_i&middot;B_i ) / ( &radic;&Sigma;A_i&sup2; &middot; &radic;&Sigma;B_i&sup2; )</code>
+						<p>Angle between two vectors <span class="mono">A</span>, <span class="mono">B</span> (e.g. user or item profiles), ignoring their magnitude. Ranges &minus;1 to 1; 1 means same direction.</p>
+						<p class="ref-line"><strong>References:</strong> Jadon, A., &amp; Patil, A. (2024). A comprehensive survey of evaluation techniques for recommendation systems. <a href="https://arxiv.org/abs/2312.16015" target="_blank" rel="noopener">arXiv:2312.16015</a>.</p>
+					</article>
+
+					<article class="card" data-reveal>
+						<h3>Euclidean distance</h3>
+						<code class="formula">d(A,B)  =  &radic;( &Sigma; (A_i &minus; B_i)&sup2; )</code>
+						<p>Straight-line distance between two points in feature space; 0 means identical. Used to compare numeric-attribute profiles rather than orientation alone.</p>
+						<p class="ref-line"><strong>References:</strong> Jadon, A., &amp; Patil, A. (2024). A comprehensive survey of evaluation techniques for recommendation systems. <a href="https://arxiv.org/abs/2312.16015" target="_blank" rel="noopener">arXiv:2312.16015</a>.</p>
+					</article>
+
+					<article class="card" data-reveal>
+						<h3>Jaccard index</h3>
+						<code class="formula">J(A,B)  =  | A &cap; B | / | A &cup; B |</code>
+						<p>Overlap between two sets (e.g. two users&rsquo; liked items) relative to their union. Ranges 0 to 1; suited to binary or implicit-preference data.</p>
+						<p class="ref-line"><strong>References:</strong> Jadon, A., &amp; Patil, A. (2024). A comprehensive survey of evaluation techniques for recommendation systems. <a href="https://arxiv.org/abs/2312.16015" target="_blank" rel="noopener">arXiv:2312.16015</a>.</p>
+					</article>
+
+					<article class="card" data-reveal>
+						<h3>Pearson correlation coefficient</h3>
+						<code class="formula">r  =  &Sigma;(X_i&minus;X&#772;)(Y_i&minus;Y&#772;)  /  ( &radic;&Sigma;(X_i&minus;X&#772;)&sup2; &middot; &radic;&Sigma;(Y_i&minus;Y&#772;)&sup2; )</code>
+						<p>Linear correlation between two rating vectors, e.g. two users&rsquo; ratings on the same items. Ranges &minus;1 to 1; the classic weight for user-based collaborative filtering.</p>
+						<p class="ref-line"><strong>References:</strong> Jadon, A., &amp; Patil, A. (2024). A comprehensive survey of evaluation techniques for recommendation systems. <a href="https://arxiv.org/abs/2312.16015" target="_blank" rel="noopener">arXiv:2312.16015</a>.</p>
+					</article>
+
+					<article class="card" data-reveal>
+						<h3>Novelty</h3>
+						<code class="formula">Novelty(R_u)  =  (1/|R_u|) &Sigma;<sub>i&isin;R_u</sub> ( 1 &minus; popularity_score(i) )</code>
+						<p>Average &ldquo;unpopularity&rdquo; of a user&rsquo;s recommendation list <span class="mono">R_u</span>. Higher values mean the system is surfacing less obvious, less mainstream items.</p>
+						<p class="ref-line"><strong>References:</strong> Jadon, A., &amp; Patil, A. (2024). A comprehensive survey of evaluation techniques for recommendation systems. <a href="https://arxiv.org/abs/2312.16015" target="_blank" rel="noopener">arXiv:2312.16015</a>.</p>
+					</article>
+
+					<article class="card" data-reveal>
+						<h3>Catalog coverage</h3>
+						<code class="formula">Catalog Coverage  =  ( |unique items recommended| / |items in catalog| )  &times;  100%</code>
+						<p>Share of the entire item catalog that ever gets recommended, across all users &mdash; the catalogue-wide relative of the coverage ratio I use in the TeleNotArzt paper.</p>
+						<p class="ref-line"><strong>References:</strong> Jadon, A., &amp; Patil, A. (2024). A comprehensive survey of evaluation techniques for recommendation systems. <a href="https://arxiv.org/abs/2312.16015" target="_blank" rel="noopener">arXiv:2312.16015</a>.</p>
+					</article>
+
+					<article class="card" data-reveal>
+						<h3>RMSE, MAE &amp; MAPE</h3>
+						<code class="formula">RMSE  =  &radic;( (1/N) &Sigma; (y_i &minus; &#375;_i)&sup2; )
+MAE   =  (1/n) &Sigma; | y_i &minus; &#375;_i |
+MAPE  =  (100%/n) &Sigma; | y_i &minus; &#375;_i | / y_i</code>
+						<p>Three ways to score rating-prediction error. RMSE squares errors first, so large misses cost more; MAE weighs every error equally; MAPE expresses the error as a percentage of the true value, which makes it comparable across differently-scaled datasets.</p>
+						<p class="ref-line"><strong>References:</strong> Jadon, A., &amp; Patil, A. (2024). A comprehensive survey of evaluation techniques for recommendation systems. <a href="https://arxiv.org/abs/2312.16015" target="_blank" rel="noopener">arXiv:2312.16015</a>.</p>
+					</article>
+
+					<article class="card" data-reveal>
+						<h3>R&sup2; (coefficient of determination)</h3>
+						<code class="formula">R&sup2;  =  1  &minus;  SS_res / SS_tot
+SS_res = &Sigma;(y_i&minus;&#375;_i)&sup2;,   SS_tot = &Sigma;(y_i&minus;y&#772;)&sup2;</code>
+						<p>Share of the variance in the outcome that the model explains. 1 is a perfect fit; 0 means the model is no better than always predicting the average.</p>
+						<p class="ref-line"><strong>References:</strong> Jadon, A., &amp; Patil, A. (2024). A comprehensive survey of evaluation techniques for recommendation systems. <a href="https://arxiv.org/abs/2312.16015" target="_blank" rel="noopener">arXiv:2312.16015</a>.</p>
+					</article>
+
+					<article class="card" data-reveal>
+						<h3>Precision@k, recall@k &amp; F1@k</h3>
+						<code class="formula">Precision@k  =  (# relevant in top-k) / k
+Recall@k     =  | Relevant &cap; Top-k | / | Relevant |
+F1@k         =  2 &times; (Precision@k &times; Recall@k) / (Precision@k + Recall@k)</code>
+						<p>The survey&rsquo;s own notation for the two metrics I used in the TeleNotArzt paper, plus F1@k, their harmonic mean &mdash; a single number when you need one ranking headline instead of the precision/recall trade-off.</p>
+						<p class="ref-line"><strong>References:</strong> Jadon, A., &amp; Patil, A. (2024). A comprehensive survey of evaluation techniques for recommendation systems. <a href="https://arxiv.org/abs/2312.16015" target="_blank" rel="noopener">arXiv:2312.16015</a>.</p>
+					</article>
+
+					<article class="card" data-reveal>
+						<h3>Mean Reciprocal Rank (MRR)</h3>
+						<code class="formula">MRR  =  (1/|Q|) &Sigma;<sub>i=1</sub><sup>|Q|</sup>  1/rank_i</code>
+						<p>Average, over all queries/cases <span class="mono">Q</span>, of one over the position of the <em>first</em> relevant item. Rewards getting the right answer near the top rather than counting how many correct items appear.</p>
+						<p class="ref-line"><strong>References:</strong> Jadon, A., &amp; Patil, A. (2024). A comprehensive survey of evaluation techniques for recommendation systems. <a href="https://arxiv.org/abs/2312.16015" target="_blank" rel="noopener">arXiv:2312.16015</a>.</p>
+					</article>
+
+					<article class="card" data-reveal>
+						<h3>DCG &amp; nDCG@k</h3>
+						<code class="formula">DCG_p   =  &Sigma;<sub>i=1</sub><sup>p</sup>  (2<sup>rel_i</sup> &minus; 1) / log&#8322;(i + 1)
+nDCG_p  =  DCG_p / iDCG_p</code>
+						<p>DCG rewards relevant items more the higher they rank, using <em>graded</em> relevance (<span class="mono">rel_i</span>) rather than a binary relevant/not-relevant call. nDCG normalises by the best possible ordering (iDCG) so scores are comparable across lists of different lengths.</p>
+						<p class="ref-line"><strong>References:</strong> Jadon, A., &amp; Patil, A. (2024). A comprehensive survey of evaluation techniques for recommendation systems. <a href="https://arxiv.org/abs/2312.16015" target="_blank" rel="noopener">arXiv:2312.16015</a>.</p>
+					</article>
+
+					<article class="card" data-reveal>
+						<h3>Mean Average Precision (MAP)</h3>
+						<code class="formula">MAP  =  (1/U) &Sigma;<sub>u=1</sub><sup>U</sup>  (1/|Relevant_u|) &Sigma;<sub>k</sub> Precision@k &times; rel_u(k)</code>
+						<p>Averages precision at every point a relevant item is retrieved for a user, then averages that across all <span class="mono">U</span> users &mdash; a single ranking-quality score for the whole system rather than one case at a time.</p>
+						<p class="ref-line"><strong>References:</strong> Jadon, A., &amp; Patil, A. (2024). A comprehensive survey of evaluation techniques for recommendation systems. <a href="https://arxiv.org/abs/2312.16015" target="_blank" rel="noopener">arXiv:2312.16015</a>.</p>
 					</article>
 
 				</div>
