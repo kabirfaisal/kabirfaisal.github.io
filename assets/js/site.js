@@ -51,4 +51,33 @@
 	} else {
 		reveal.forEach(function (el) { el.classList.add("is-visible"); });
 	}
+
+	/* 3D tilt on cards and the portrait (mouse/trackpad only, respects reduced motion) */
+	var canTilt = window.matchMedia &&
+		window.matchMedia("(hover: hover) and (pointer: fine)").matches &&
+		!window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+	if (canTilt) {
+		document.querySelectorAll(".card-hover, .pub, .hero-visual").forEach(function (el) {
+			var max = el.classList.contains("hero-visual") ? 14 : 6;
+			var glare = document.createElement("span");
+			glare.className = "tilt-glare";
+			glare.setAttribute("aria-hidden", "true");
+			el.classList.add("tilt");
+			el.appendChild(glare);
+
+			el.addEventListener("pointermove", function (e) {
+				var r = el.getBoundingClientRect();
+				var x = (e.clientX - r.left) / r.width;
+				var y = (e.clientY - r.top) / r.height;
+				el.style.setProperty("--ry", ((x - 0.5) * 2 * max).toFixed(2) + "deg");
+				el.style.setProperty("--rx", ((0.5 - y) * 2 * max).toFixed(2) + "deg");
+				el.style.setProperty("--gx", (x * 100).toFixed(1) + "%");
+				el.style.setProperty("--gy", (y * 100).toFixed(1) + "%");
+				el.classList.add("is-tilting");
+			});
+			el.addEventListener("pointerleave", function () {
+				el.classList.remove("is-tilting");
+			});
+		});
+	}
 })();
