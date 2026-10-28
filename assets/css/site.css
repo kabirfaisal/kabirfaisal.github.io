@@ -910,26 +910,23 @@ a:focus-visible, button:focus-visible, .btn:focus-visible {
 
 /* ---------- Utilities ---------- */
 
-/* ---------- 3D tilt (driven by site.js on pointer devices) ---------- */
+/* ---------- 3D tilt on the home-page portrait (driven by site.js) ---------- */
 
-.tilt { position: relative; transform-style: preserve-3d; }
-.tilt.is-tilting {
-	transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(-4px);
-	transition: transform .12s ease-out, box-shadow .18s ease;
-	box-shadow: var(--shadow-lg);
+.hero-visual.is-tilting {
+	transform: perspective(700px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+	transition: transform .12s ease-out;
 }
 .tilt-glare {
 	position: absolute;
 	inset: 0;
-	border-radius: inherit;
+	border-radius: 22px;
 	pointer-events: none;
 	background: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), rgba(255,255,255,.22), transparent 55%);
 	opacity: 0;
+	transform: translateZ(21px);
 	transition: opacity .2s ease;
 }
-.tilt.is-tilting .tilt-glare { opacity: 1; }
-.hero-visual.tilt.is-tilting { box-shadow: none; transform: perspective(700px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); }
-.hero-visual .tilt-glare { border-radius: 22px; transform: translateZ(21px); }
+.hero-visual.is-tilting .tilt-glare { opacity: 1; }
 
 .stack > * + * { margin-top: 1rem; }
 .mt-0 { margin-top: 0; }

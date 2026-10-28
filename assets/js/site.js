@@ -260,17 +260,17 @@
 		requestAnimationFrame(function () { canvas.classList.add("is-ready"); });
 	}
 
-	/* 3D tilt on cards and the portrait (mouse/trackpad only, respects reduced motion) */
+	/* 3D tilt on the home-page portrait only; content cards stay still for reading
+	   (mouse/trackpad only, respects reduced motion) */
 	var canTilt = window.matchMedia &&
 		window.matchMedia("(hover: hover) and (pointer: fine)").matches &&
 		!window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 	if (canTilt) {
-		document.querySelectorAll(".card-hover, .pub, .hero-visual").forEach(function (el) {
-			var max = el.classList.contains("hero-visual") ? 14 : 6;
+		document.querySelectorAll(".hero-visual").forEach(function (el) {
+			var max = 14;
 			var glare = document.createElement("span");
 			glare.className = "tilt-glare";
 			glare.setAttribute("aria-hidden", "true");
-			el.classList.add("tilt");
 			el.appendChild(glare);
 
 			el.addEventListener("pointermove", function (e) {
