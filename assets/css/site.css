@@ -3,50 +3,34 @@
    Shared stylesheet for every page
    ========================================================= */
 
+/* One dark, colourful theme for every page: the background runs from deep
+   green at the top to a lighter teal at the bottom (see body). */
 :root {
-	--bg:            #f6f7f4;
-	--bg-alt:        #edf1ec;
-	--surface:       #ffffff;
-	--surface-soft:  #f2f5f0;
-	--text:          #263b36;
-	--muted:         #60736c;
-	--heading:       #142722;
-	--border:        rgba(20, 39, 34, 0.11);
-	--accent:        #08796d;
-	--accent-bright: #55c5a6;
-	--accent-weak:   rgba(8, 121, 109, 0.11);
-	--violet:        #6d5dfc;
-	--amber:         #e89a2c;
-	--shadow-sm:     0 1px 2px rgba(12, 30, 25, 0.10), 0 8px 22px rgba(12, 30, 25, 0.12);
-	--shadow-md:     0 2px 4px rgba(12, 30, 25, 0.10), 0 20px 44px rgba(12, 30, 25, 0.22);
-	--shadow-lg:     0 4px 8px rgba(12, 30, 25, 0.12), 0 32px 72px rgba(12, 30, 25, 0.30);
+	color-scheme: dark;
+	--bg:            #0b1d18;
+	--bg-alt:        rgba(255, 255, 255, 0.025);
+	--surface:       rgba(255, 255, 255, 0.07);
+	--surface-solid: #15302a;
+	--surface-soft:  rgba(255, 255, 255, 0.06);
+	--text:          #e4eee9;
+	--muted:         #b3c6bd;
+	--heading:       #f4faf6;
+	--border:        rgba(255, 255, 255, 0.12);
+	--accent:        #6edcbd;
+	--accent-bright: #95e8cf;
+	--accent-weak:   rgba(110, 220, 189, 0.14);
+	--violet:        #a497ff;
+	--amber:         #f5b85e;
+	--on-accent:     #0b1d18;
+	--shadow-sm:     0 1px 2px rgba(0, 0, 0, 0.25), 0 10px 26px rgba(0, 0, 0, 0.28);
+	--shadow-md:     0 2px 6px rgba(0, 0, 0, 0.28), 0 22px 48px rgba(0, 0, 0, 0.40);
+	--shadow-lg:     0 4px 10px rgba(0, 0, 0, 0.30), 0 34px 76px rgba(0, 0, 0, 0.50);
 	--radius:        18px;
 	--radius-lg:     28px;
 	--maxw:          1120px;
 	--font-sans:     "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 	--font-serif:    "Source Serif 4", Georgia, "Times New Roman", serif;
 	--header-h:      68px;
-}
-
-@media (prefers-color-scheme: dark) {
-	:root {
-		--bg:            #101916;
-		--bg-alt:        #141f1b;
-		--surface:       #19241f;
-		--surface-soft:  #202d27;
-		--text:          #e5eee9;
-		--muted:         #a1b4aa;
-		--heading:       #f2f8f4;
-		--border:        rgba(255, 255, 255, 0.10);
-		--accent:        #65d7b8;
-		--accent-bright: #8be4c8;
-		--accent-weak:   rgba(101, 215, 184, 0.14);
-		--violet:        #9d91ff;
-		--amber:         #f3b55a;
-		--shadow-sm:     0 2px 8px rgba(0, 0, 0, 0.35);
-		--shadow-md:     0 14px 34px rgba(0, 0, 0, 0.45);
-		--shadow-lg:     0 24px 60px rgba(0, 0, 0, 0.55);
-	}
 }
 
 /* ---------- Reset / base ---------- */
@@ -61,11 +45,15 @@ body {
 	font-size: 17px;
 	line-height: 1.75;
 	color: var(--text);
+	/* Spans the whole document, so it lightens as the reader scrolls down */
+	min-height: 100vh;
 	background:
-		radial-gradient(60rem 40rem at 100% 30%, color-mix(in srgb, var(--violet) 7%, transparent), transparent 70%),
-		radial-gradient(50rem 36rem at 0% 70%, color-mix(in srgb, var(--accent) 8%, transparent), transparent 70%),
-		var(--bg);
-	background-attachment: fixed;
+		radial-gradient(46rem 34rem at 92% 6%,  rgba(124, 104, 255, 0.30), transparent 70%),
+		radial-gradient(40rem 30rem at 4% 28%,  rgba(40, 170, 140, 0.22), transparent 70%),
+		radial-gradient(44rem 32rem at 96% 52%, rgba(124, 104, 255, 0.20), transparent 70%),
+		radial-gradient(40rem 30rem at 0% 76%,  rgba(240, 160, 60, 0.16), transparent 70%),
+		radial-gradient(46rem 34rem at 90% 98%, rgba(60, 200, 170, 0.22), transparent 70%),
+		linear-gradient(180deg, #07150f 0%, #0d241e 22%, #133029 48%, #1a3d36 74%, #22504a 100%);
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
 }
@@ -137,12 +125,12 @@ p:last-child { margin-bottom: 0; }
 	left: -999px;
 	top: 0;
 	background: var(--accent);
-	color: #fff;
+	color: var(--on-accent);
 	padding: .6rem 1rem;
 	border-radius: 0 0 8px 0;
 	z-index: 200;
 }
-.skip-link:focus { left: 0; color: #fff; }
+.skip-link:focus { left: 0; color: var(--on-accent); }
 
 /* ---------- Header / nav ---------- */
 
@@ -215,8 +203,9 @@ p:last-child { margin-bottom: 0; }
 	width: 34px; height: 34px;
 	display: grid; place-items: center;
 	border-radius: 10px;
-	background: linear-gradient(135deg, var(--accent), var(--accent-bright));
+	background: linear-gradient(135deg, #0b8a7c, #6d5dfc);
 	color: #fff;
+	box-shadow: 0 4px 14px rgba(109, 93, 252, .35);
 	font-size: .8rem;
 	font-weight: 800;
 	letter-spacing: .02em;
@@ -263,7 +252,7 @@ p:last-child { margin-bottom: 0; }
 		flex-direction: column;
 		align-items: stretch;
 		gap: 0;
-		background: var(--surface);
+		background: var(--surface-solid);
 		border-bottom: 1px solid var(--border);
 		box-shadow: var(--shadow-md);
 		padding: .5rem;
@@ -282,8 +271,7 @@ p:last-child { margin-bottom: 0; }
 	radial-gradient(34rem 26rem at 92% 18%, rgba(109, 93, 252, 0.30), transparent 65%),
 	radial-gradient(30rem 22rem at 70% 110%, rgba(232, 154, 44, 0.20), transparent 65%),
 	radial-gradient(48rem 38rem at 80% 50%, rgba(49, 152, 124, 0.26), transparent 68%),
-	radial-gradient(45rem 30rem at 4% 0%, rgba(24, 94, 78, 0.40), transparent 65%),
-	linear-gradient(135deg, #0c201a 0%, #122b25 52%, #152f2a 100%);
+	radial-gradient(45rem 30rem at 4% 0%, rgba(24, 94, 78, 0.40), transparent 65%);
 	padding: clamp(3rem, 8vw, 6rem) 0 clamp(3rem, 7vw, 5rem);
 	overflow: hidden;
 }
@@ -507,12 +495,9 @@ img.hero-avatar {
 
 .section { padding: clamp(3.2rem, 7vw, 5.5rem) 0; }
 .section.alt {
-	background:
-		radial-gradient(40rem 20rem at 95% 0%, color-mix(in srgb, var(--violet) 9%, transparent), transparent 70%),
-		radial-gradient(40rem 20rem at 0% 100%, color-mix(in srgb, var(--amber) 8%, transparent), transparent 70%),
-		var(--bg-alt);
-	border-top: 1px solid var(--border);
-	border-bottom: 1px solid var(--border);
+	background: var(--bg-alt);
+	border-top: 1px solid rgba(255, 255, 255, .06);
+	border-bottom: 1px solid rgba(255, 255, 255, .06);
 }
 .section-head { max-width: 60ch; margin-bottom: 2.2rem; }
 .section-head h2 { margin-bottom: .5rem; }
@@ -544,9 +529,9 @@ img.hero-avatar {
 }
 .focus-card::after { opacity: 1; }
 .focus-card:nth-child(2)::before { color: var(--violet); }
-.focus-card:nth-child(2)::after { background: linear-gradient(90deg, var(--violet), #a99dff); }
+.focus-card:nth-child(2)::after { background: linear-gradient(90deg, var(--violet), #c7bfff); }
 .focus-card:nth-child(3)::before { color: var(--amber); }
-.focus-card:nth-child(3)::after { background: linear-gradient(90deg, var(--amber), #f6c77d); }
+.focus-card:nth-child(3)::after { background: linear-gradient(90deg, var(--amber), #fad49b); }
 .focus-card p { font-size: .95rem; margin: 0; }
 
 .grid { display: grid; gap: 1.4rem; }
@@ -561,12 +546,15 @@ img.hero-avatar {
 
 /* ---------- Cards ---------- */
 
+/* Frosted-glass panels over the page gradient */
 .card {
-	background: var(--surface);
+	background: linear-gradient(150deg, rgba(255, 255, 255, .10), rgba(255, 255, 255, .035));
 	border: 1px solid var(--border);
 	border-radius: var(--radius);
 	padding: 1.7rem;
-	box-shadow: var(--shadow-sm);
+	box-shadow: var(--shadow-sm), inset 0 1px 0 rgba(255, 255, 255, .08);
+	-webkit-backdrop-filter: blur(14px);
+	backdrop-filter: blur(14px);
 }
 .card.pad-lg { padding: 2.2rem; }
 .card-hover { transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
@@ -682,7 +670,7 @@ img.hero-avatar {
 .pub-list { display: grid; gap: 1.2rem; }
 .pub {
 	position: relative;
-	background: var(--surface);
+	background: linear-gradient(150deg, rgba(255, 255, 255, .10), rgba(255, 255, 255, .035));
 	border: 1px solid var(--border);
 	border-radius: var(--radius);
 	padding: 1.6rem 1.8rem 1.6rem 2.1rem;
@@ -772,7 +760,7 @@ img.hero-avatar {
 	color: var(--heading);
 }
 .cat-nav a:hover { border-color: var(--accent); color: var(--accent); }
-.cat-nav a[aria-current="page"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+.cat-nav a[aria-current="page"] { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
 
 .formula {
 	display: block;
@@ -819,8 +807,8 @@ dl.glossary dd { margin: .2rem 0 0; color: var(--muted); }
 /* ---------- Footer ---------- */
 
 .site-footer {
-	background: #0d211b;
-	color: rgba(255,255,255,0.68);
+	background: rgba(4, 14, 11, .55);
+	color: rgba(255,255,255,0.72);
 	padding: 2.6rem 0;
 	font-size: .88rem;
 	border-top: 1px solid rgba(145, 221, 192, .14);
@@ -855,7 +843,7 @@ dl.glossary dd { margin: .2rem 0 0; color: var(--muted); }
 	border-radius: 50%;
 	display: grid; place-items: center;
 	background: var(--accent);
-	color: #fff;
+	color: var(--on-accent);
 	border: none;
 	cursor: pointer;
 	box-shadow: var(--shadow-md);
