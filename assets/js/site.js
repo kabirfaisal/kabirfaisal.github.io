@@ -61,10 +61,10 @@
 	   Each page gets its own shape, picked from the URL. */
 	var heroInner = document.querySelector(".hero.compact .hero-inner");
 	if (heroInner && window.HTMLCanvasElement) {
-		var page = (location.pathname.match(/\/(about|research|publications|projects|blog|cv)(?=\/|\.html|$)/) || [])[1];
+		var page = (location.pathname.match(/\/(research|publications|projects|blog|contact)(?=\/|\.html|$)/) || [])[1];
 		var shapes = {
-			about: sphereShape, research: layersShape, publications: helixShape,
-			projects: torusShape, blog: waveShape, cv: latticeShape
+			research: layersShape, publications: helixShape,
+			projects: torusShape, blog: waveShape, contact: sphereShape
 		};
 		var shape = (shapes[page] || sphereShape)();
 		var canvas = document.createElement("canvas");
@@ -146,22 +146,6 @@
 				});
 			}
 		};
-	}
-
-	function latticeShape() {
-		var pts = [], edges = [], G = 4, s = 1.5 / (G - 1);
-		for (var x = 0; x < G; x++) {
-			for (var y = 0; y < G; y++) {
-				for (var z = 0; z < G; z++) {
-					var i = pts.length;
-					pts.push([x * s - 0.75, y * s - 0.75, z * s - 0.75]);
-					if (x > 0) edges.push([i - G * G, i]);
-					if (y > 0) edges.push([i - G, i]);
-					if (z > 0) edges.push([i - 1, i]);
-				}
-			}
-		}
-		return { pts: pts, edges: edges };
 	}
 
 	function nearestEdges(pts, k) {

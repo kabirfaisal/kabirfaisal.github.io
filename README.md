@@ -6,16 +6,17 @@ Static site hosted on GitHub Pages.
 
 | File | Purpose |
 | --- | --- |
-| `index.html` | Home: hero, about, selected publications, research, skills, projects, contact |
-| `about.html` | Extended bio and academic path |
+| `index.html` | Home: hero, research focus, latest publication and project, about (bio, quick facts, education, employment) |
+| `about.html` | Redirect stub → `index.html#about` (the bio, education and employment now live on the home page) |
 | `research.html` | Research interests and approach |
 | `publications.html` | Full peer-reviewed publication list |
 | `projects.html` | Selected applied projects |
+| `contact.html` | Contact form (delivered by FormSubmit) and contact details |
 | `blog/` | Blog (English only) — a hub (`blog/index.html`) plus one page per section: `paper-summaries`, `related-work`, `algorithms`, `math`, `glossary`, `reading-list` |
 | `blog.html` | Redirect stub → `blog/index.html` (keeps old links working) |
-| `cv.html` | On-page CV + PDF download |
+| `cv.html` | Redirect stub → `Md_Faisal_Kabir_CV_english.pdf` (the menu's CV link downloads the PDF directly) |
 | `404.html` | Custom not-found page |
-| `de/` | German versions of every page except the blog (`de/index.html`, `de/about.html`, …) |
+| `de/` | German versions of every page except the blog (`de/index.html`, `de/research.html`, …) |
 | `assets/css/site.css` | Single shared stylesheet (design tokens, layout, dark mode) |
 | `assets/js/site.js` | Mobile nav, scroll reveal, sticky header, back-to-top |
 
@@ -39,7 +40,7 @@ All absolute URLs (`<link rel="canonical">`, `og:url`, `sitemap.xml`, `robots.tx
 
 ## Third-party bits to activate
 
-- **Contact form** — `index.html` and `de/index.html` post to [FormSubmit](https://formsubmit.co),
+- **Contact form** — `contact.html` and `de/contact.html` post to [FormSubmit](https://formsubmit.co),
   which emails each message to faisal.kabir.sca@gmail.com. The first submission triggers a one-time
   activation email; click the link in it and later messages are delivered automatically.
 - **Analytics** — every page loads [GoatCounter](https://www.goatcounter.com) (privacy-friendly,
