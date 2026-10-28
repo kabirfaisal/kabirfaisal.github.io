@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-labelledby="t d">
+  <title id="t">KIT2 — AI assistant for TeleNotArzt emergency care</title>
+  <desc id="d">Vital signs, patient records and clinical notes from an ambulance flow into a multimodal deep-learning model that returns ranked diagnoses, treatments and next measurements.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#08201a"/>
+      <stop offset=".55" stop-color="#11352f"/>
+      <stop offset="1" stop-color="#231f5c"/>
+    </linearGradient>
+    <radialGradient id="glowV" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#7c68ff" stop-opacity=".45"/>
+      <stop offset="1" stop-color="#7c68ff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowT" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#2fb894" stop-opacity=".35"/>
+      <stop offset="1" stop-color="#2fb894" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="node" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6edcbd"/>
+      <stop offset="1" stop-color="#a497ff"/>
+    </linearGradient>
+    <linearGradient id="bar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#6edcbd"/>
+      <stop offset="1" stop-color="#a497ff"/>
+    </linearGradient>
+    <linearGradient id="flow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#6edcbd" stop-opacity=".2"/>
+      <stop offset="1" stop-color="#a497ff" stop-opacity=".9"/>
+    </linearGradient>
+    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#ffffff" fill-opacity=".06"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <rect width="800" height="450" fill="url(#dots)"/>
+  <circle cx="410" cy="240" r="190" fill="url(#glowV)"/>
+  <circle cx="110" cy="80" r="160" fill="url(#glowT)"/>
+
+  <g font-family="Segoe UI, Helvetica Neue, Arial, sans-serif">
+    <!-- Header -->
+    <text x="40" y="58" fill="#ffffff" font-size="28" font-weight="800" letter-spacing="1">KIT2</text>
+    <text x="40" y="80" fill="#b9d9cf" font-size="13">AI assistant · TeleNotArzt emergency care</text>
+
+    <!-- Ambulance with tele-link signal -->
+    <g transform="translate(646 26)">
+      <g fill="none" stroke="#6edcbd" stroke-width="2.5" stroke-linecap="round">
+        <path d="M-6 22 A10 10 0 0 1 4 12" stroke-opacity=".95"/>
+        <path d="M-14 22 A18 18 0 0 1 4 4" stroke-opacity=".65"/>
+        <path d="M-22 22 A26 26 0 0 1 4 -4" stroke-opacity=".35"/>
+      </g>
+      <rect x="12" y="14" width="76" height="36" rx="6" fill="#f4faf6"/>
+      <path d="M88 24 h14 l12 12 v14 h-26 z" fill="#f4faf6"/>
+      <path d="M92 28 h9 l8 8 h-17 z" fill="#1a3d36"/>
+      <rect x="12" y="38" width="102" height="4" fill="#6edcbd"/>
+      <rect x="44" y="19" width="7" height="17" rx="1" fill="#e5484d"/>
+      <rect x="39" y="24" width="17" height="7" rx="1" fill="#e5484d"/>
+      <circle cx="32" cy="52" r="7" fill="#0b1d18" stroke="#f4faf6" stroke-width="2.5"/>
+      <circle cx="96" cy="52" r="7" fill="#0b1d18" stroke="#f4faf6" stroke-width="2.5"/>
+    </g>
+
+    <!-- Input 1: vital signs (time series) -->
+    <rect x="40" y="110" width="200" height="88" rx="14" fill="#ffffff" fill-opacity=".07" stroke="#ffffff" stroke-opacity=".16"/>
+    <text x="56" y="133" fill="#9fe3cc" font-size="12" font-weight="700" letter-spacing=".6">VITAL SIGNS</text>
+    <polyline points="56,170 92,170 100,170 106,150 113,188 119,160 125,170 160,170 168,170 174,148 181,190 187,160 193,170 224,170"
+      fill="none" stroke="#6edcbd" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+
+    <!-- Input 2: patient records (tabular) -->
+    <rect x="40" y="212" width="200" height="88" rx="14" fill="#ffffff" fill-opacity=".07" stroke="#ffffff" stroke-opacity=".16"/>
+    <text x="56" y="235" fill="#c7bfff" font-size="12" font-weight="700" letter-spacing=".6">PATIENT RECORDS</text>
+    <g fill="#ffffff" fill-opacity=".18">
+      <rect x="56" y="248" width="36" height="9" rx="2"/><rect x="98" y="248" width="36" height="9" rx="2"/><rect x="140" y="248" width="36" height="9" rx="2"/><rect x="182" y="248" width="42" height="9" rx="2"/>
+      <rect x="56" y="263" width="36" height="9" rx="2"/><rect x="140" y="263" width="36" height="9" rx="2"/><rect x="182" y="263" width="42" height="9" rx="2"/>
+      <rect x="56" y="278" width="36" height="9" rx="2"/><rect x="98" y="278" width="36" height="9" rx="2"/><rect x="182" y="278" width="42" height="9" rx="2"/>
+    </g>
+    <rect x="98" y="263" width="36" height="9" rx="2" fill="#a497ff"/>
+    <rect x="140" y="278" width="36" height="9" rx="2" fill="#a497ff" fill-opacity=".7"/>
+
+    <!-- Input 3: clinical notes (text) -->
+    <rect x="40" y="314" width="200" height="88" rx="14" fill="#ffffff" fill-opacity=".07" stroke="#ffffff" stroke-opacity=".16"/>
+    <text x="56" y="337" fill="#f8cf8f" font-size="12" font-weight="700" letter-spacing=".6">CLINICAL NOTES</text>
+    <g fill="#ffffff" fill-opacity=".2">
+      <rect x="56" y="350" width="160" height="6" rx="3"/>
+      <rect x="56" y="363" width="128" height="6" rx="3"/>
+      <rect x="56" y="376" width="146" height="6" rx="3"/>
+    </g>
+    <rect x="96" y="350" width="44" height="6" rx="3" fill="#f5b85e"/>
+    <rect x="120" y="376" width="38" height="6" rx="3" fill="#f5b85e" fill-opacity=".8"/>
+
+    <!-- Flows into the model -->
+    <g fill="none" stroke="url(#flow)" stroke-width="2" stroke-dasharray="5 5">
+      <path d="M240 154 C285 154 290 184 330 184"/>
+      <path d="M240 256 C285 256 290 234 330 234"/>
+      <path d="M240 358 C285 358 290 284 330 284"/>
+    </g>
+
+    <!-- Multimodal fusion network -->
+    <g stroke="#ffffff" stroke-opacity=".18" stroke-width="1.2">
+      <path d="M340 184 L410 160 M340 184 L410 210 M340 184 L410 260 M340 184 L410 310
+               M340 234 L410 160 M340 234 L410 210 M340 234 L410 260 M340 234 L410 310
+               M340 284 L410 160 M340 284 L410 210 M340 284 L410 260 M340 284 L410 310
+               M410 160 L480 209 M410 210 L480 209 M410 260 L480 209 M410 310 L480 209
+               M410 160 L480 259 M410 210 L480 259 M410 260 L480 259 M410 310 L480 259"/>
+    </g>
+    <g fill="url(#node)" stroke="#ffffff" stroke-opacity=".6" stroke-width="1.5">
+      <circle cx="340" cy="184" r="10"/><circle cx="340" cy="234" r="10"/><circle cx="340" cy="284" r="10"/>
+      <circle cx="410" cy="160" r="10"/><circle cx="410" cy="210" r="10"/><circle cx="410" cy="260" r="10"/><circle cx="410" cy="310" r="10"/>
+      <circle cx="480" cy="209" r="11"/><circle cx="480" cy="259" r="11"/>
+    </g>
+    <text x="410" y="352" fill="#d4ceff" font-size="12" font-weight="700" letter-spacing=".6" text-anchor="middle">MULTIMODAL FUSION</text>
+    <text x="410" y="370" fill="#ffffff" fill-opacity=".55" font-size="11" text-anchor="middle">deep learning model</text>
+
+    <!-- Flows out -->
+    <g fill="none" stroke="url(#flow)" stroke-width="2" stroke-dasharray="5 5">
+      <path d="M491 209 C525 209 530 200 560 200"/>
+      <path d="M491 259 C525 259 530 270 560 270"/>
+    </g>
+
+    <!-- Output: ranked suggestions -->
+    <rect x="560" y="110" width="200" height="292" rx="14" fill="#ffffff" fill-opacity=".09" stroke="#ffffff" stroke-opacity=".2"/>
+    <text x="576" y="137" fill="#ffffff" font-size="13" font-weight="700">Ranked suggestions</text>
+
+    <g font-size="10.5" fill="#b3c6bd">
+      <text x="604" y="166">Likely diagnosis</text>
+      <text x="604" y="214">Alternative diagnosis</text>
+      <text x="604" y="262">Suggested treatment</text>
+      <text x="604" y="310">Next measurement</text>
+      <text x="604" y="358">Further check</text>
+    </g>
+    <g fill="#ffffff" fill-opacity=".12">
+      <rect x="604" y="173" width="140" height="8" rx="4"/>
+      <rect x="604" y="221" width="140" height="8" rx="4"/>
+      <rect x="604" y="269" width="140" height="8" rx="4"/>
+      <rect x="604" y="317" width="140" height="8" rx="4"/>
+      <rect x="604" y="365" width="140" height="8" rx="4"/>
+    </g>
+    <g fill="url(#bar)">
+      <rect x="604" y="173" width="128" height="8" rx="4"/>
+      <rect x="604" y="221" width="98" height="8" rx="4"/>
+      <rect x="604" y="269" width="112" height="8" rx="4"/>
+      <rect x="604" y="317" width="84" height="8" rx="4"/>
+      <rect x="604" y="365" width="52" height="8" rx="4"/>
+    </g>
+    <g font-size="11" font-weight="800" text-anchor="middle" fill="#0b1d18">
+      <circle cx="586" cy="170" r="10" fill="#6edcbd"/><text x="586" y="174">1</text>
+      <circle cx="586" cy="218" r="10" fill="#8fd0e0"/><text x="586" y="222">2</text>
+      <circle cx="586" cy="266" r="10" fill="#a9bdf0"/><text x="586" y="270">3</text>
+      <circle cx="586" cy="314" r="10" fill="#b4adff"/><text x="586" y="318">4</text>
+      <circle cx="586" cy="362" r="10" fill="#a497ff"/><text x="586" y="366">5</text>
+    </g>
+
+    <!-- Caption -->
+    <text x="40" y="432" fill="#ffffff" fill-opacity=".55" font-size="12">Time-series · tabular · text  →  ranked diagnoses, treatments &amp; next measurements</text>
+  </g>
+</svg>

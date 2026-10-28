@@ -24,7 +24,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet" />
-	<link rel="stylesheet" href="assets/css/site.css?v=6" />
+	<link rel="stylesheet" href="assets/css/site.css?v=8" />
 
 	<script type="application/ld+json">
 	{
@@ -32,7 +32,7 @@
 		"@type": "Person",
 		"name": "Md Faisal Kabir",
 		"jobTitle": "Research Assistant, PhD Student",
-		"email": ["mailto:mfk@informatik.uni-kiel.de", "mailto:faisal.kabir.sca@gmail.com"],
+		"email": ["mailto:mdfaisal.kabir@stu.uni-kiel.de", "mailto:faisal.kabir.sca@gmail.com"],
 		"address": { "@type": "PostalAddress", "addressLocality": "Kiel", "addressCountry": "Germany" },
 		"url": "https://kabirfaisal.github.io/",
 		"image": "https://kabirfaisal.github.io/images/profile.jpg",
@@ -101,7 +101,7 @@
 							<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.37.5 0 5.78 0 12.29c0 5.2 3.44 9.6 8.21 11.16.6.11.82-.25.82-.56v-2.02c-3.34.71-4.04-1.4-4.04-1.4-.55-1.36-1.34-1.72-1.34-1.72-1.09-.72.08-.71.08-.71 1.2.08 1.84 1.21 1.84 1.21 1.07 1.79 2.81 1.27 3.5.97.11-.76.42-1.27.76-1.56-2.67-.29-5.47-1.29-5.47-5.74 0-1.27.47-2.31 1.24-3.12-.13-.29-.54-1.46.12-3.05 0 0 1.01-.31 3.3 1.19a11.7 11.7 0 0 1 3-.39c1.02 0 2.05.13 3 .39 2.28-1.5 3.29-1.19 3.29-1.19.66 1.59.25 2.76.12 3.05.78.81 1.24 1.85 1.24 3.12 0 4.46-2.81 5.44-5.49 5.73.43.36.81 1.08.81 2.18v3.24c0 .31.21.68.82.56A11.8 11.8 0 0 0 24 12.29C24 5.78 18.63.5 12 .5Z"/></svg>
 							GitHub
 						</a>
-						<a href="mailto:mfk@informatik.uni-kiel.de">
+						<a href="mailto:mdfaisal.kabir@stu.uni-kiel.de">
 							<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h20a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm10 7L2.5 5.5v.5L12 13l9.5-7v-.5L12 11Z"/></svg>
 							Email
 						</a>
@@ -156,7 +156,7 @@
 							<li><strong>Role</strong> Research Assistant, Intelligent Systems Group, Kiel University</li>
 							<li><strong>PhD</strong> Christian-Albrechts-Universität zu Kiel</li>
 							<li><strong>Location</strong> Kiel, Germany</li>
-							<li><strong>Email</strong> <a href="mailto:mfk@informatik.uni-kiel.de">mfk@informatik.uni-kiel.de</a></li>
+							<li><strong>Email</strong> <a href="mailto:mdfaisal.kabir@stu.uni-kiel.de">mdfaisal.kabir@stu.uni-kiel.de</a></li>
 						</ul>
 					</aside>
 				</div>
@@ -188,7 +188,7 @@
 					<h2>Latest project</h2>
 				</div>
 				<article class="card card-hover project-card feature" data-reveal>
-					<div class="thumb" style="background:linear-gradient(135deg,#0b8a7c,#6d5dfc);display:grid;place-items:center;color:#fff;font-weight:800;font-size:2rem;letter-spacing:.05em;">KIT2</div>
+					<div class="thumb"><img src="images/kit2.svg" alt="KIT2 illustration: vital signs, patient records and clinical notes flow into a multimodal model that ranks diagnoses, treatments and next measurements" loading="lazy" width="800" height="450" /></div>
 					<div class="body">
 						<h3>KIT2 &mdash; AI assistant for TeleNotArzt emergency care</h3>
 						<p>Completed collaboration with RWTH Aachen University. A deep multimodal model that ranks likely diagnoses, treatments, and next measurements for pre-hospital emergency care, with supporting work on missing-value imputation and synthetic data generation.</p>
@@ -207,11 +207,11 @@
 				</div>
 				<div class="grid split">
 					<div data-reveal>
-						<!-- Formspree contact form. To activate: create a free form at https://formspree.io,
-						     then replace YOUR_FORM_ID with the id from your endpoint (https://formspree.io/f/xxxxxxxx).
-						     Until then, submissions are not delivered. -->
-						<form class="card contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+						<!-- Messages are delivered by FormSubmit (formsubmit.co) to faisal.kabir.sca@gmail.com.
+						     The very first submission sends a one-time activation email to that inbox. -->
+						<form class="card contact-form" action="https://formsubmit.co/faisal.kabir.sca@gmail.com" method="POST">
 							<h3>Send a message</h3>
+							<p class="form-sent" role="status" hidden>Thanks &mdash; your message has been sent. I will get back to you soon.</p>
 							<label>Your name
 								<input type="text" name="name" required autocomplete="name" />
 							</label>
@@ -221,12 +221,15 @@
 							<label>Message
 								<textarea name="message" rows="5" required></textarea>
 							</label>
-							<input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" />
+							<input type="hidden" name="_subject" value="New message from kabirfaisal.de" />
+							<input type="hidden" name="_template" value="table" />
+							<input type="hidden" name="_next" value="https://kabirfaisal.de/?sent=1#contact" />
+							<input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
 							<button type="submit" class="btn btn-primary">Send</button>
 						</form>
 					</div>
 					<div data-reveal style="display:flex;flex-direction:column;gap:1rem;">
-						<div class="card contact-item"><strong>Email</strong><p><a href="mailto:mfk@informatik.uni-kiel.de">mfk@informatik.uni-kiel.de</a><br /><a href="mailto:faisal.kabir.sca@gmail.com">faisal.kabir.sca@gmail.com</a></p></div>
+						<div class="card contact-item"><strong>Email</strong><p><a href="mailto:mdfaisal.kabir@stu.uni-kiel.de">mdfaisal.kabir@stu.uni-kiel.de</a><br /><a href="mailto:faisal.kabir.sca@gmail.com">faisal.kabir.sca@gmail.com</a></p></div>
 						<div class="card contact-item"><strong>Online</strong><p><a href="https://orcid.org/0009-0000-2354-2193" target="_blank" rel="noopener">ORCID</a> &bull; <a href="https://scholar.google.com/citations?user=8Gns9zUAAAAJ" target="_blank" rel="noopener">Scholar</a> &bull; <a href="https://www.researchgate.net/profile/Md-Faisal-Kabir-6" target="_blank" rel="noopener">ResearchGate</a> &bull; <a href="https://www.linkedin.com/in/md-faisal-kabir-2203a4a1/" target="_blank" rel="noopener">LinkedIn</a> &bull; <a href="https://github.com/kabirfaisal" target="_blank" rel="noopener">GitHub</a></p></div>
 					</div>
 				</div>
@@ -255,6 +258,6 @@
 	     Activate: sign up free at https://www.goatcounter.com, then replace MYCODE
 	     with your site code. Until then this line is inert. -->
 	<script data-goatcounter="https://MYCODE.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-	<script src="assets/js/site.js?v=3"></script>
+	<script src="assets/js/site.js?v=4"></script>
 </body>
 </html>

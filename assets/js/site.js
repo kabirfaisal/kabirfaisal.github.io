@@ -52,6 +52,11 @@
 		reveal.forEach(function (el) { el.classList.add("is-visible"); });
 	}
 
+	/* Contact form: FormSubmit redirects back with ?sent=1 after delivery */
+	if (/[?&]sent=1\b/.test(location.search)) {
+		document.querySelectorAll(".form-sent").forEach(function (el) { el.hidden = false; });
+	}
+
 	/* 3D tilt on cards and the portrait (mouse/trackpad only, respects reduced motion) */
 	var canTilt = window.matchMedia &&
 		window.matchMedia("(hover: hover) and (pointer: fine)").matches &&

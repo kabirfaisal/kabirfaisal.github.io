@@ -39,8 +39,9 @@ All absolute URLs (`<link rel="canonical">`, `og:url`, `sitemap.xml`, `robots.tx
 
 ## Third-party bits to activate
 
-- **Contact form** — `index.html` uses [Formspree](https://formspree.io). Create a free form,
-  then replace `YOUR_FORM_ID` in the `<form action>` on `index.html`.
+- **Contact form** — `index.html` and `de/index.html` post to [FormSubmit](https://formsubmit.co),
+  which emails each message to faisal.kabir.sca@gmail.com. The first submission triggers a one-time
+  activation email; click the link in it and later messages are delivered automatically.
 - **Analytics** — every page loads [GoatCounter](https://www.goatcounter.com) (privacy-friendly,
   no cookie banner). Sign up, then replace `MYCODE` in the `data-goatcounter` script tag on each page.
 
