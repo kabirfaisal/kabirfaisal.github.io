@@ -287,6 +287,26 @@ p:last-child { margin-bottom: 0; }
 .hero.compact { padding: clamp(3rem, 7vw, 4.6rem) 0 clamp(2.6rem, 6vw, 4rem); }
 .hero.compact h1 { font-size: clamp(2.1rem, 4.8vw, 3.1rem); margin-bottom: .7rem; max-width: 22ch; }
 .hero.compact p.hero-bio { margin-bottom: 0; font-size: 1.04rem; }
+
+/* 3D node network drawn by site.js on the right of inner-page heroes */
+.hero-3d {
+	position: absolute;
+	right: 0;
+	top: 50%;
+	width: 42%;
+	height: 340px;
+	transform: translateY(-50%);
+	pointer-events: none;
+	opacity: 0;
+	transition: opacity 1.2s ease;
+}
+.hero-3d.is-ready { opacity: 1; }
+.hero.compact.has-3d h1 { max-width: 16ch; }
+.hero.compact.has-3d p.hero-bio { max-width: 50ch; }
+@media (max-width: 860px) {
+	.hero-3d { display: none; }
+	.hero.compact.has-3d h1, .hero.compact.has-3d p.hero-bio { max-width: none; }
+}
 .hero::before {
 	content: "";
 	position: absolute;
