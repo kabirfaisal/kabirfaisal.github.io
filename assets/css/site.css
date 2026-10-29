@@ -87,6 +87,10 @@ h3 { font-size: 1.12rem; font-weight: 700; letter-spacing: -0.005em; }
 ::selection { background: var(--accent-weak); color: var(--heading); }
 
 p { margin: 0 0 1rem; }
+
+/* Let long unbroken strings (e.g. "disease/medication/measurement", emails,
+   long German compounds) wrap instead of widening the page on small phones */
+p, li, dd, h2, h3 { overflow-wrap: anywhere; }
 p:last-child { margin-bottom: 0; }
 
 .container {
@@ -371,9 +375,9 @@ img.hero-avatar {
 	letter-spacing: .14em;
 }
 .hero-home h1 {
-	max-width: 11ch;
+	white-space: nowrap;
 	margin-bottom: 1rem;
-	font-size: clamp(3rem, 6.2vw, 5rem);
+	font-size: clamp(2.2rem, 5.2vw, 4.2rem);
 	line-height: 1.02;
 	letter-spacing: -.03em;
 }
@@ -471,7 +475,7 @@ img.hero-avatar {
 
 @media (max-width: 480px) {
 	.hero-home .hero-layout { gap: 2rem; }
-	.hero-home h1 { font-size: clamp(2.8rem, 14vw, 4rem); }
+	.hero-home h1 { font-size: clamp(1.9rem, 10vw, 3rem); }
 	.hero-visual { width: min(62%, 200px); }
 }
 
